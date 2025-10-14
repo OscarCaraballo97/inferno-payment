@@ -1,6 +1,4 @@
 resource "aws_s3_bucket" "catalog_bucket" {
-  # El nombre del bucket debe ser único a nivel mundial.
-  # Si falla la creación, añade números aleatorios al final.
   bucket = "inferno-payment-catalog-uploads"
 }
 

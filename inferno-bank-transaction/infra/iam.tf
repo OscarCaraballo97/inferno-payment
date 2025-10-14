@@ -38,7 +38,7 @@ resource "aws_iam_policy" "lambda_custom_policy" {
           "sqs:GetQueueAttributes"
         ],
         Resource = [
-          aws_s_queue.start_payment_queue.arn,
+          aws_sqs_queue.start_payment_queue.arn,
           aws_sqs_queue.check_balance_queue.arn,
           aws_sqs_queue.transaction_queue.arn
         ]

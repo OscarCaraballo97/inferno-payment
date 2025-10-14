@@ -1,8 +1,3 @@
-/**
- * @file apiHandler.mjs
- * @description Handles incoming HTTP requests from Amazon API Gateway.
- */
-
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient, GetCommand } from '@aws-sdk/lib-dynamodb';
 import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs';
@@ -54,6 +49,7 @@ async function createPayment(body) {
     }
 
    let cardData;
+    /*
     try {
         const userResponse = await fetch(`${USER_SERVICE_API}/cards/${cardId}`);
         if (!userResponse.ok) {
@@ -69,6 +65,9 @@ async function createPayment(body) {
             body: JSON.stringify({ message: 'Card validation failed. The card does not exist.' })
         };
     }
+    */
+    cardData = { userId: "mock-user-123" };
+    console.log(`Using mock card validation for userId: ${cardData.userId}`);
 
     const traceId = randomUUID();
     const transactionPayload = {
@@ -145,4 +144,3 @@ async function getPaymentStatus(traceId) {
         };
     }
 }
-
