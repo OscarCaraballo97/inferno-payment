@@ -79,8 +79,3 @@ resource "aws_lambda_permission" "apigw_permission" {
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.payment_api.execution_arn}/*/*"
 }
-
-output "api_gateway_url" {
-  description = "The base URL for the Payment API Gateway stage"
-  value       = aws_api_gateway_stage.api_stage.invoke_url
-}
