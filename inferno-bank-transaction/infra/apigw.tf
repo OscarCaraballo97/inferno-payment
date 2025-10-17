@@ -77,5 +77,5 @@ resource "aws_lambda_permission" "apigw_permission" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.api_gateway_lambda.function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_api_gateway_rest_api.payment_api.execution_arn}/*/*"
+  source_arn    = "arn:aws:execute-api:us-east-1:248911656496:m8wdytr4wi/*/*"
 }
